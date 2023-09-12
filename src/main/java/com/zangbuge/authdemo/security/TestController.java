@@ -23,4 +23,11 @@ public class TestController {
     public Result<String> testRole(String name) {
         return Result.createBySuccess("操作成功", name);
     }
+
+    @PostMapping("/testAuth")
+    @PreAuthorize("hasAnyAuthority('auth')")
+    public Result<String> testAuth(String name) {
+        return Result.createBySuccess("操作成功", name);
+    }
+
 }
